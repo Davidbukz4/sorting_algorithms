@@ -10,21 +10,22 @@ void bubble_sort(int *array, size_t size)
 {
 	size_t i, j, n = size;
 	int temp, flag;
-	for (i = 0; i < n - 1; i++)
+
+	for (i = 0; i < n; i++)
+	{
+		flag = 0;
+		for (j = 0; j < n - 1; j++)
 		{
-			flag = 0;
-			for (j = 0; j < n - 1 - i; j++)
+			if (array[j] > array[j + 1]) /* compares the two values */
 			{
-				if (array[j] > array[j + 1]) /* compares the two values */
-				{
-					temp = array[j];
-					array[j] = array[j + 1];
-					array[j + 1] = temp;
-					flag = 1;
-					print_array(array, size);
-				}
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+				flag = 1;
+				print_array(array, size);
 			}
-			if (flag == 0) /*checks if bubble sort occured */
-			break;
 		}
+		if (flag == 0) /*checks if bubble sort occured */
+		break;
+	}
 }
